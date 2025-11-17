@@ -1,10 +1,9 @@
-
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mi experiencia con Lumifox — Pokémon inventado</title>
+  <title>Mi experiencia con Lumifox</title>
   <style>
     :root{
       --bg:#050816;
@@ -15,7 +14,12 @@
       --glass: rgba(148,163,184,0.12);
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
     body{
       min-height:100vh;
       background:
@@ -23,26 +27,21 @@
         radial-gradient(circle at bottom, #22c55e 0, transparent 55%),
         #020617;
       color:#e5e7eb;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
+
     .container{
       width:100%;
       max-width:960px;
-      background:rgba(15,23,42,0.96);
-      border-radius:22px;
-      padding:24px 24px 18px;
-      box-shadow:0 18px 60px rgba(15,23,42,0.9);
-      border:1px solid rgba(148,163,184,0.32);
-      backdrop-filter:blur(18px);
+      margin:0 auto;
+      padding:24px 20px 18px;
     }
+
     header{
       display:flex;
       align-items:center;
       gap:16px;
-      margin-bottom:12px;
+      margin-bottom:10px;
     }
     .logo{
       width:68px;
@@ -69,7 +68,7 @@
     }
 
     .card{
-      margin-top:10px;
+      margin-top:12px;
       background:radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 60%),
                   radial-gradient(circle at bottom right, rgba(34,197,94,0.12), transparent 60%),
                   #020617;
@@ -78,6 +77,8 @@
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
       gap:18px;
       padding:18px;
+      box-shadow:0 18px 60px rgba(15,23,42,0.9);
+      border:1px solid rgba(148,163,184,0.32);
     }
     @media(max-width:880px){
       .card{
@@ -85,23 +86,13 @@
       }
     }
 
-    /* --- Imagen: Pokémon inventado (SVG) --- */
+    /* contenedor de la imagen */
     .image-shell{
       border-radius:16px;
       overflow:hidden;
       position:relative;
       background:radial-gradient(circle at top, #0f172a, #020617);
       border:1px solid rgba(148,163,184,0.5);
-    }
-    .image-shell::after{
-      content:"";
-      position:absolute;
-      inset:auto 18px 12px;
-      height:34px;
-      border-radius:999px;
-      background:radial-gradient(circle, rgba(15,23,42,0.96), transparent 65%);
-      filter:blur(3px);
-      opacity:0.75;
     }
     .scene-tag{
       position:absolute;
@@ -116,6 +107,7 @@
       align-items:center;
       gap:6px;
       z-index:2;
+      color:#e5e7eb;
     }
     .scene-dot{
       width:7px;
@@ -131,7 +123,6 @@
       height:auto;
     }
 
-    /* --- Columna texto --- */
     .side{
       display:flex;
       flex-direction:column;
@@ -160,6 +151,7 @@
       line-height:1.5;
       color:var(--muted);
     }
+
     textarea{
       width:100%;
       min-height:110px;
@@ -211,7 +203,6 @@
       text-align:center;
     }
 
-    /* animaciones suaves */
     @keyframes floatOrb{
       0%{ transform:translateY(0); }
       50%{ transform:translateY(-8px); }
@@ -240,14 +231,14 @@
     </header>
 
     <main class="card">
-      <!-- IMAGEN: POKÉMON INVENTADO (LUMIFOX) -->
+      <!-- IMAGEN CON LUMIFOX -->
       <section class="image-shell">
         <div class="scene-tag">
           <span class="scene-dot"></span>
           <span>Encuentro nocturno · Lumifox</span>
         </div>
 
-        <!-- SVG ORIGINAL: crea un Pokémon inventado, no oficial -->
+        <!-- SVG de Lumifox, ya incrustado -->
         <svg class="lumifox" viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="bgGrad" x1="0" x2="0" y1="0" y2="1">
@@ -272,11 +263,11 @@
           <rect x="0" y="0" width="640" height="400" fill="url(#bgGrad)"/>
           <circle cx="320" cy="120" r="200" fill="url(#halo)" opacity="0.9"/>
 
-          <!-- “suelo” tipo parque -->
+          <!-- Suelo -->
           <ellipse cx="320" cy="290" rx="230" ry="70" fill="#020617" opacity="0.9"/>
           <ellipse cx="320" cy="300" rx="200" ry="60" fill="#020617" opacity="0.9"/>
 
-          <!-- Orbes flotantes (ambientación) -->
+          <!-- Orbes flotantes -->
           <g class="orb">
             <circle cx="120" cy="110" r="18" fill="#38bdf8" opacity="0.8"/>
             <circle cx="120" cy="110" r="8" fill="#e0f2fe" opacity="0.8"/>
@@ -286,12 +277,11 @@
             <circle cx="530" cy="80" r="6" fill="#dcfce7" opacity="0.9"/>
           </g>
 
-          <!-- Lumifox: cuerpo principal -->
+          <!-- Lumifox -->
           <g transform="translate(320,220)">
-            <!-- sombra -->
             <ellipse cx="0" cy="70" rx="80" ry="22" fill="#020617" opacity="0.7"/>
 
-            <!-- cola luminosa -->
+            <!-- cola -->
             <path d="M40 20 C 110 -10, 130 -40, 150 -80
                      C 140 -40, 120 -10, 90 10
                      C 75 22, 60 28, 40 20 Z"
@@ -299,7 +289,6 @@
 
             <!-- cuerpo -->
             <ellipse cx="0" cy="24" rx="70" ry="52" fill="url(#bodyGrad)"/>
-            <!-- vientre -->
             <ellipse cx="-5" cy="30" rx="38" ry="30" fill="#e0f2fe" opacity="0.92"/>
 
             <!-- patas -->
@@ -309,6 +298,7 @@
             <!-- cabeza -->
             <g transform="translate(-6,-40)">
               <ellipse cx="0" cy="0" rx="42" ry="36" fill="url(#bodyGrad)"/>
+
               <!-- orejas -->
               <path d="M-20 -18 C -32 -45, -30 -68, -18 -80
                        C -2 -70, 0 -45, -8 -26 Z"
@@ -316,7 +306,7 @@
               <path d="M18 -18 C 30 -45, 28 -68, 16 -80
                        C 0 -70, -2 -45, 8 -26 Z"
                     fill="#22c55e"/>
-              <!-- interior orejas -->
+
               <path d="M-17 -20 C -25 -42, -24 -56, -16 -63
                        C -4 -56, -4 -42, -9 -28 Z"
                     fill="#bbf7d0"/>
@@ -337,13 +327,13 @@
               <!-- boca -->
               <path d="M-8 10 Q 0 16 8 10" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round"/>
 
-              <!-- “luz” en el pecho -->
+              <!-- luz pecho -->
               <circle cx="0" cy="18" r="6" fill="#fef9c3"/>
               <circle cx="0" cy="18" r="11" fill="#fef9c3" opacity="0.35"/>
             </g>
           </g>
 
-          <!-- Farola estilizada al fondo (ambiente urbano) -->
+          <!-- Farola -->
           <g opacity="0.8">
             <rect x="460" y="110" width="6" height="130" rx="3" fill="#020617"/>
             <circle cx="463" cy="98" r="16" fill="#fbbf24"/>
@@ -352,7 +342,7 @@
         </svg>
       </section>
 
-      <!-- TEXTO: experiencia de juego -->
+      <!-- TEXTO -->
       <aside class="side">
         <div class="pill">Registro de exploración · nocturno</div>
 
@@ -370,7 +360,9 @@
         </div>
 
         <div>
-          <div class="label-small">Escribe cómo fue tu encuentro con Lumifox u otro Pokémon inventado:</div>
+          <div class="label-small">
+            Escribe cómo fue tu encuentro con Lumifox u otro Pokémon inventado:
+          </div>
           <textarea id="editor">Iba volviendo a casa cuando el móvil vibró justo al pasar por el parque. En el mapa apareció una silueta nueva y brillante: un zorro verde y azul que iluminaba las sombras entre los árboles. Al entrar al encuentro, Lumifox giraba la cola luminosa como si estuviera dibujando círculos en el aire. Tuve que calcular bien el lanzamiento, porque se movía de un lado a otro como si jugara conmigo. Cuando por fin la bola se cerró, sentí que había descubierto un secreto escondido en mi propio barrio.</textarea>
           <div class="controls">
             <button class="btn btn-primary" id="saveBtn">Guardar experiencia</button>
