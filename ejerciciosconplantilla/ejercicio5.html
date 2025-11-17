@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página inspirada en Pokémon GO — Experiencia de juego</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#2dd4bf;
+      --muted:#a6b0c3;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#071226 0%, #0b1830 60%), var(--bg);color:#e6eef8;display:flex;align-items:center;justify-content:center;padding:28px}
+    .container{width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(2,6,23,0.7);}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,#1b6b6b,#0f9d86);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(13,86,86,0.18);}
+    .logo h1{font-size:18px;margin:0;color:white}
+    h2{margin:0 0 6px 0;font-size:20px}
+    p.lead{margin:0;color:var(--muted)}
+
+    .card{margin-top:18px;background:var(--card);padding:18px;border-radius:12px;display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center}
+    @media(max-width:880px){.card{grid-template-columns:1fr;}}
+
+    /* illustration area */
+    .illustration{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:260px}
+
+    /* right column */
+    .side{display:flex;flex-direction:column;gap:12px}
+    .map-thumb{height:180px;border-radius:10px;background:linear-gradient(180deg,#06283a,#083047);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .map-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);background-size:36px 36px;opacity:0.6}
+    .btn{background:var(--accent);border:none;padding:10px 12px;border-radius:10px;color:#042322;font-weight:600;cursor:pointer}
+
+    /* experience text */
+    .experience{margin-top:12px;background:var(--glass);padding:14px;border-radius:10px;color:#e7f7f4}
+    .experience h3{margin:0 0 8px 0}
+    .experience p{margin:0;color:var(--muted)}
+
+    /* editable area */
+    textarea{width:100%;min-height:110px;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;resize:vertical}
+    .controls{display:flex;gap:8px;align-items:center}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* friendly footer */
+    footer{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* --- simple original SVG creature styles --- */
+    .creature{filter:drop-shadow(0 10px 20px rgba(2,8,23,0.6));}
+    .orb{transform-origin:center;animation:float 4s ease-in-out infinite}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><h1>GoScout</h1></div>
+      <div>
+        <h2>Explora y captura — experiencia inspirada en Pokémon GO</h2>
+        <p class="lead">Ilustración original y texto de ejemplo. Puedes editar la experiencia abajo.</p>
+      </div>
+    </header>
+
+    <main class="card">
+      <section class="illustration" aria-hidden="false">
+        <!-- Original SVG illustration inspired by AR creature capture (no copyrighted characters) -->
+        <svg class="creature" width="100%" height="100%" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#34d399" />
+              <stop offset="1" stop-color="#06b6d4" />
+            </linearGradient>
+            <linearGradient id="g2" x1="0" x2="1">
+              <stop offset="0" stop-color="#f97316" />
+              <stop offset="1" stop-color="#ef4444" />
+            </linearGradient>
+            <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" />
+            </filter>
+          </defs>
+
+          <!-- background ground -->
+          <rect x="0" y="220" width="600" height="140" rx="24" fill="#061426" />
+
+          <!-- floating orbs (capture devices inspired, non-branded) -->
+          <g transform="translate(380,110)" class="orb">
+            <circle r="48" fill="url(#g1)" />
+            <circle r="20" fill="#072029" cx="-6" cy="-6" opacity="0.15" />
+            <circle r="14" fill="#ffffff" cx="10" cy="-10" opacity="0.16" />
+          </g>
+
+          <g transform="translate(120,100)" class="orb" style="animation-delay:0.6s">
+            <circle r="58" fill="url(#g2)" />
+            <circle r="18" fill="#ffffff" cx="-12" cy="-10" opacity="0.16" />
+          </g>
+
+          <!-- abstract creatures -->
+          <g transform="translate(260,180)">
+            <ellipse rx="64" ry="44" fill="#9be7ff" opacity="0.06"/>
+            <g transform="translate(-40,-22)">
+              <ellipse rx="46" ry="46" fill="#ffd6b6" stroke="#f59e0b" stroke-width="4"/>
+              <circle cx="-12" cy="-6" r="8" fill="#081233"/>
+              <circle cx="10" cy="-8" r="6" fill="#081233"/>
+              <path d="M-18 18 q18 12 36 0" stroke="#c05621" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <g transform="translate(48,-10)">
+              <ellipse rx="36" ry="36" fill="#c7f9db" stroke="#059669" stroke-width="4"/>
+              <circle cx="-8" cy="-6" r="6" fill="#072029"/>
+              <circle cx="10" cy="-8" r="4" fill="#072029"/>
+              <path d="M-12 22 q12 8 24 0" stroke="#047857" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+          </g>
+
+          <!-- subtle map pins -->
+          <g opacity="0.9">
+            <path d="M90 200 q6 -36 28 -52 q20 16 26 52 z" fill="#0ea5a4" transform="translate(10,-18)"/>
+            <path d="M500 200 q6 -36 28 -52 q20 16 26 52 z" fill="#fb7185" transform="translate(-10,-14)"/>
+          </g>
+
+          <!-- small UI frame at bottom to evoke AR phone bar -->
+          <g transform="translate(120,260)">
+            <rect x="0" y="0" width="360" height="64" rx="12" fill="#081026" opacity="0.9"/>
+            <circle cx="48" cy="32" r="10" fill="#ffffff" opacity="0.9"/>
+            <rect x="86" y="20" width="220" height="8" rx="6" fill="#ffffff" opacity="0.06"/>
+          </g>
+        </svg>
+      </section>
+
+      <aside class="side">
+        <div class="map-thumb" aria-hidden="true">
+          <div class="map-grid"></div>
+          <div style="text-align:center;z-index:2">
+            <div style="font-weight:700;font-size:14px">Barrios cercanos</div>
+            <div style="margin-top:6px;color:var(--muted);font-size:13px">Puntos de interés, objetos y criaturas únicas</div>
+          </div>
+        </div>
+
+        <div class="experience" id="displayExperience">
+          <h3>Mi experiencia de juego</h3>
+          <p id="expText">Salir a la calle con la app abierta me llenó de emoción: encontré criaturas en parques, intercambié objetos con otros jugadores y viví el mapa como si fuera una caza en tiempo real. El seguimiento GPS fue preciso, y compartir logros con amigos hizo que cada encuentro fuera memorable.</p>
+        </div>
+
+        <div>
+          <div class="small">Editar tu experiencia:</div>
+          <textarea id="editor">Salir a la calle con la app abierta me llenó de emoción: encontré criaturas en parques, intercambié objetos con otros jugadores y viví el mapa como si fuera una caza en tiempo real. El seguimiento GPS fue preciso, y compartir logros con amigos hizo que cada encuentro fuera memorable.</textarea>
+          <div class="controls" style="margin-top:8px">
+            <button class="btn" id="saveBtn">Guardar</button>
+            <button class="btn" id="resetBtn" style="background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.06)">Restablecer</button>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      Ilustración original creada para esta página — inspirada en la experiencia de juego tipo AR. Puedes descargar el HTML o pedirme cambios.
+    </footer>
+  </div>
+
+  <script>
+    const editor = document.getElementById('editor');
+    const saveBtn = document.getElementById('saveBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const expText = document.getElementById('expText');
+    const initial = editor.value;
+
+    saveBtn.addEventListener('click', ()=>{
+      expText.textContent = editor.value.trim() || 'Escribe tu experiencia aquí...';
+      saveBtn.textContent = 'Guardado ✓';
+      setTimeout(()=> saveBtn.textContent = 'Guardar',1200);
+    });
+
+    resetBtn.addEventListener('click', ()=>{
+      editor.value = initial;
+      expText.textContent = initial;
+    });
+  </script>
+</body>
+</html>
