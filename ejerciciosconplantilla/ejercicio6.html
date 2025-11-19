@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - José Antonio Maza Jiménez</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body{
+            background:#f2f2f2;
+            color:#333;
+        }
+
+        /* --- NAV --- */
+        nav{
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 40px;
+            position:fixed;
+            top:0;
+            background:#000000aa;
+            backdrop-filter: blur(6px);
+            z-index:10;
+        }
+
+        nav a{
+            color:white;
+            margin:0 15px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        nav a:hover{
+            color:#ffcc00;
+        }
+
+        /* --- HERO --- */
+        header{
+            height:100vh;
+            background:url('https://images.unsplash.com/photo-1518606378372-8eee99a44f58?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:0 20px;
+            color:white;
+        }
+
+        header h1{
+            font-size:3.2rem;
+            text-shadow:0 3px 10px rgba(0,0,0,0.6);
+        }
+
+        header h2{
+            margin-top:10px;
+            font-size:1.5rem;
+            opacity:0.9;
+        }
+
+        header a{
+            margin-top:30px;
+            display:inline-block;
+            padding:12px 30px;
+            background:#ffcc00;
+            color:#000;
+            font-weight:bold;
+            border-radius:5px;
+            text-decoration:none;
+            transition:0.3s;
+        }
+
+        header a:hover{
+            background:#e6b800;
+        }
+
+        /* --- SOBRE MI --- */
+        section{
+            padding:80px 10%;
+        }
+
+        #sobre-mi h2, #portafolio h2, #contacto h2{
+            font-size:2.2rem;
+            margin-bottom:20px;
+            color:#111;
+        }
+
+        .sobre-container{
+            display:flex;
+            flex-wrap:wrap;
+            gap:40px;
+            align-items:center;
+        }
+
+        .sobre-texto{
+            flex:1 1 350px;
+        }
+
+        .skills{
+            margin-top:20px;
+            list-style:square;
+            padding-left:20px;
+        }
+
+        .skills li{
+            margin-bottom:8px;
+        }
+
+        /* --- PORTAFOLIO --- */
+        .grid{
+            margin-top:40px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+            gap:25px;
+        }
+
+        .proyecto{
+            background:white;
+            border-radius:10px;
+            padding-bottom:20px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.1);
+            overflow:hidden;
+        }
+
+        .proyecto img{
+            width:100%;
+            height:170px;
+            object-fit:cover;
+        }
+
+        .proyecto h3{
+            padding:15px;
+            font-size:1.3rem;
+        }
+
+        .proyecto p{
+            padding:0 15px 10px;
+            font-size:0.95rem;
+            opacity:0.8;
+        }
+
+        .proyecto a{
+            margin-left:15px;
+            display:inline-block;
+            padding:8px 20px;
+            background:#000;
+            color:#fff;
+            text-decoration:none;
+            border-radius:4px;
+        }
+
+        .proyecto a:hover{
+            background:#333;
+        }
+
+        /* --- CONTACTO ---*/
+        form{
+            max-width:500px;
+            margin-top:30px;
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        input, textarea{
+            padding:12px;
+            border:1px solid #aaa;
+            border-radius:5px;
+            font-size:1rem;
+        }
+
+        button{
+            padding:12px;
+            background:#ffcc00;
+            border:none;
+            font-size:1rem;
+            font-weight:bold;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#e6b800;
+        }
+
+        /* FOOTER */
+        footer{
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+        }
+
+        .redes{
+            margin-top:10px;
+        }
+
+        .redes img{
+            width:28px;
+            margin:0 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div style="color:white; font-weight:bold;">J.A. Maza</div>
+        <div>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="inicio">
+        <h1>José Antonio Maza Jiménez</h1>
+        <h2>Portfolio Profesional • Desarrollo y Creatividad</h2>
+        <a href="#portafolio">Ver Portafolio</a>
+    </header>
+
+    <!-- SOBRE MI -->
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+
+        <div class="sobre-container">
+            <div class="sobre-texto">
+                <p>
+                    Soy una persona empática, positiva y con un alto sentido de responsabilidad. 
+                    Me caracterizo por la disciplina, la constancia y la capacidad de adaptarme a nuevas situaciones. 
+                    Mi motivación principal es mejorar continuamente y afrontar cada proyecto con compromiso, profesionalidad 
+                    y una actitud siempre abierta al aprendizaje.
+                </p>
+
+                <h3>Habilidades</h3>
+                <ul class="skills">
+                    <li>Empatía y comunicación efectiva</li>
+                    <li>Actitud positiva ante los retos</li>
+                    <li>Disciplina y constancia</li>
+                    <li>Responsabilidad y organización</li>
+                    <li>Creatividad en resolución de problemas</li>
+                    <li>Trabajo en equipo</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+    <section id="portafolio">
+        <h2>Portafolio</h2>
+
+        <div class="grid">
+
+            <!-- Proyecto 1 -->
+            <div class="proyecto">
+                <img src="https://images.unsplash.com/photo-1581091012184-5c1dcd4572bc?auto=format&fit=crop&w=800&q=80" alt="">
+                <h3>Dashboard Administrativo</h3>
+                <p>
+                    Panel de control moderno con métricas, gráficas y gestión de usuarios.
+                </p>
+                <a href="#">Ver más</a>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="proyecto">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="">
+                <h3>Sitio Web Corporativo</h3>
+                <p>
+                    Página institucional con identidad visual personalizada y secciones dinámicas.
+                </p>
+                <a href="#">Ver más</a>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="proyecto">
+                <img src="https://images.unsplash.com/photo-1551817958-20204d6ab230?auto=format&fit=crop&w=800&q=80" alt="">
+                <h3>App de Gestión de Tareas</h3>
+                <p>
+                    Aplicación intuitiva para crear, organizar y completar tareas diarias.
+                </p>
+                <a href="#">Ver más</a>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div class="proyecto">
+                <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=800&q=80" alt="">
+                <h3>Landing de Producto</h3>
+                <p>
+                    Diseño orientado a aumentar las conversiones mediante una estructura clara y visual.
+                </p>
+                <a href="#">Ver más</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme directamente al teléfono: <strong>610 55 41 42</strong></p>
+
+        <form>
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <textarea rows="6" placeholder="Escribe tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="redes">
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png"></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 José Antonio Maza Jiménez – Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
